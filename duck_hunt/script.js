@@ -103,14 +103,17 @@ function Duck(duckNumber) {
     this.duckPic = '',
     this._duckNumber = duckNumber, //zmienna pomocnicza, ratuje w sytuacji, gdy zmienia się wartośc duckPic, przyjmuje wartosc z argukemntu funkcji obiektu, moze zamienić jej nazwę na duckNumber po prostu
     this.duckHitIconNr = this._duckNumber;
+    
     this.duckStart = function() {
         console.log('duckPic ' + this.duckPic);
         console.log('_duckNumber ' + this._duckNumber);
-		if(this.initVal) {
+		//if this is the first duck it gets its number from initial ducknumber
+        if(this.initVal) {
             this.duckHitIcon = document.getElementById('duckHit'+this.duckHitIconNr);	//getting the current duck number (from the duckNumber value)
                    console.log('duckHitIconNr dla biezacej kaczki (czyli numer migacza)' + this.duckHitIconNr);
 
-        }//tutaj w ponizszej funkcji, _duck powinien miec wartosc duckHit+iloćś kaczek, wtedy przesunie sie proporcjonalnie
+        }
+        //otherwise it`s being increased by the initial amount od ducks
         else { 
             this.duckHitIconNr += initDucksAmt;
             this.duckHitIcon = document.getElementById('duckHit'+this.duckHitIconNr);
@@ -118,26 +121,27 @@ function Duck(duckNumber) {
 
         }
         this.initVal = false;
-        this.duckHitIcon.src = "img/hit/hunting.gif";					//and making it blink
-        this.duckPic = document.getElementById('duck'+this._duckNumber);    //duck get its shape
-        this.duckPic.src = 'img/duckUp.gif';
+        this.duckPic = document.getElementById('duck'+this._duckNumber);  //from now on duckPic value is handling the proper duckImage
+        this.duckHitIcon.src = "img/hit/hunting.gif";					  //the duckHit icon starts to blink
+        this.duckPic.src = 'img/duckUp.gif';                              //duck gets it`s initial shape, with the beak up
         this.direction = Math.round(Math.random()*3);       //shuffling the direction between 0 and 3; why 4 parameters? see below in shuffle function
-        this.posY = 100;                                    //duck starts just from the grass edge
+        this.posY = 100;                                    //duck starts just below the grass edge
         this.posX = Math.random()*300+30;                   //shuffling the base position of the this between 30 and 330 px from the lefside
-        this.speed = 0.5;                                   //initial speed
         this.duckPic.style.left = this.posX;                //placing the duck on a start position, picked from above shuffling between 30 and 330px (posX)
+        this.speed = 0.5;                                   //initial speed
+        
         this.duckPic.onclick = this.terminate.bind(this);              //duck is open for shots
         container.onclick =  this.shot.bind(this);                     //and so the container
         
         
         
     
-//have to check/interpretate the direction here, because flight function goes before shuffle function
+        //have to check/interpretate the direction here, because flight function goes before shuffle function
         if (this.direction == 0) this.flagLeft = true;       
         else if (this.direction == 1) this.flagStraight = true;
         else if (this.direction == 2) this.flagRight = true;
         
-        //duck stars flying, making its move every 5ms; variable has to be global, so it can be reached by further functions; It also means that in every 5ms it will listen to events such as shuffle function output.
+        //duck stars to fly, making its move every 5ms; variable has to be global, so it can be reached by further functions; It also means that in every 5ms it will listen to events such as shuffle function output.
         this._flight = setInterval(this.flight.bind(this),5);
         this.flight.bind(this);
         
@@ -146,7 +150,7 @@ function Duck(duckNumber) {
         function flapping() {
             new Audio('sounds/99-duck-flapping-sfx-.mp3').play()
         };
-        
+        //quacking sound
         this._quack = setInterval(quacking, Math.random()*200 + 1100);
         function quacking() {
             new Audio('sounds/99-quack-sfx-.mp3').play()
