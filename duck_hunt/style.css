@@ -1,0 +1,209 @@
+body {
+    background-image: url(img/bgMain4.jpg);
+    background-size: 100% 100vh;
+}
+
+
+/********** WELCOME ***********/
+#welcomeScreen {
+    width: 100%;
+    height: 100%;
+}
+#welcomeScreen:hover {
+    cursor: default;   
+}
+#game1 {
+    position: absolute;
+    left: 110px;
+    top: 225px;
+    width: 225px;
+}
+#game1:hover {
+    cursor: pointer;
+}
+#game2 {
+    position: absolute;
+    left: 111px;
+    top: 254px;
+    width: 237px;
+}
+#game2:hover {
+    cursor: pointer;
+}
+#visit {
+    position: absolute;
+    left: 112px;
+    top: 288px;
+    width: 237px;
+}
+#visit:hover {
+    cursor: pointer;
+}
+#select {
+    display: none;
+    position: absolute;
+}
+#intro {
+    width: 100%;
+    height: 100%;
+}
+/********** MAIN ***********/
+#container {
+    margin: 100px auto 0 auto;
+    width: 457px;
+    height: 400px;
+    position: relative;
+    cursor: url('img/targetBlack.gif'), default;
+    background: #50a2ec;
+    border-radius: 5px;
+    border: 2px solid silver;
+    /*box-shadow: 2px 2px 2px silver;*/
+    overflow: hidden;
+}
+#backgroundTop {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;    
+    z-index: 0
+}
+#backgroundBottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
+/********** THE DUCK ***********/
+.flyingDuck {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.flyingDuck:hover {
+    cursor: url('img/targetRed.gif'), default; /*zrobić tutjua czerwony kursor*/
+}
+#flyAwayText {
+    position: absolute;
+    width: 100px;
+    left: 180px;
+    top: 130px;
+    display: none;
+}
+/********** INTERFACE ***********/
+#magazine {
+    position: absolute;
+    left: 38px;
+    bottom: 11px;
+    width: 51px;
+    z-index: 3;
+}
+#hit {
+    position: absolute;
+    left: 113px;
+    bottom: 15px;
+    width: 202px;
+    z-index: 3;
+}
+#hitBg {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	width: 146px;
+	height: 17px;
+	z-index: 3;
+	left:171px;
+	bottom: 28px;
+}
+.duckHitClass {
+	z-index: 3;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 14px;
+	height:12px;	
+}
+#points {
+    position: absolute;
+    left: 344px;
+    bottom: 30px;
+    z-index: 3;
+    width: 88px;
+    height: 15px;
+}
+.singlePoint {
+    z-index: 3;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 14px;
+	height: 12px;	
+}
+#score {
+    position: absolute;
+    left: 342px;
+    bottom: 14px;
+    z-index: 3;
+    width: 88px;
+    height: 30px;
+}
+#pointsTxt {
+    position: absolute;
+}
+#_pointsTxt {
+    position: absolute;
+    color: white;
+    font-family: "Lucida Console";
+    font-size: 15px;
+}
+
+/********** THE DOG ***********/
+#success {
+    position: absolute;
+    left: 0;
+    width: 110px;
+    bottom: 120px;
+    z-index: 1;
+}
+#laughter {
+    position: absolute;
+    left: 180px;
+    width: 90px;
+    z-index: 1;
+}
+#dogPic {
+    position: absolute;
+    left: 0;
+    width: 110px;
+    bottom: 120px;
+    z-index: 1;
+}
+/********** OUTRO ***********/
+#outroScreen {
+    width: 100%;
+    height: 100%;
+}
+#outroScreen:hover {
+    cursor: default;   
+}
+#playAgain {
+    position: absolute;
+    left: 149px;
+    bottom: 100px;
+    z-index: 3;
+}
+#playAgain:hover {
+    cursor: pointer;
+}
+#visitOutro {
+    position: absolute;
+    left: 107px;
+    bottom: 60px;
+    z-index: 3;
+}
+#visitOutro:hover {
+    cursor: pointer;
+}
