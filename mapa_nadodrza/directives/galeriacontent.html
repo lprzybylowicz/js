@@ -1,0 +1,75 @@
+<div id="galeriaContainer" ng-click="$event.stopPropagation()">
+
+    <span ng-repeat="x in emocjeFirebase.images">           
+     
+        <div id="galeriaPrev" ng-style="{'background-image': 'url({{emocjeFirebase.images[0].url}})'}" ng-class="{lessOpacity: hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-init="clickedLarge = false" ng-click="clickedLarge=true; activePage.page = emocjeFirebase.images.indexOf(x); $event.stopPropagation()"></div>
+     
+        <!--LIGHTBOX-->
+        <div id="galeriaLightboxBg" ng-show="clickedLarge" ng-click="clickedLarge=false; commentText = ''; commentAuth = ''; $event.stopPropagation()">
+
+            <!--CONTENT CONTAINER-->
+            <div id="galeriaContentCont" ng-class="{active: activePage.page == $index, inactive: activePage.page != $index}" ng-repeat="x in emocjeFirebase.images" ng-show="clickedLarge" ng-click="$event.stopPropagation()" id="gal_content_container">            
+
+
+                <!--IMAGE CONTAINER--> 
+                <div id="galeriaImageCont">
+
+                    <img src="img/prev.png" ng-show="emocjeFirebase.images[$index - 1].url" ng-click="activePage.page = $index-1; addWaitComment='Dodaj nowy komentarz'" class="previous">
+
+                    <img ng-src="{{x.url}}" id="galeriaImage">
+                    <br>
+
+                    <div id="galeriaLargeImageCont" ng-show="clickedLarge" class='col-md-12'>
+
+                        <span class="navbar-left" id="galeriaImageIndex">zdjęcie {{$index+1}} z {{emocjeFirebase.images.length}}</span>
+                        <span class='navbar-right' class='navbar-right'>
+                            <img src="img/closeGal.png" class="closeGal" ng-click="$parent.clickedLarge=false; addWaitComment='Dodaj nowy komentarz'; $event.stopPropagation()">
+                        </span>
+                        <br>
+                        <span id="galeriaImageCaption">{{x.caption_pl}}</span>
+                    </div>
+
+                    <img src="img/next.png" ng-show="emocjeFirebase.images[$index + 1].url" ng-click="activePage.page = $index+1; addWaitComment='Dodaj nowy komentarz'" class="next">
+
+                </div>   
+
+                <!--COMMENTS CONTAINER-->
+
+                <!-- I have to use tempCommentsIndex to increment its value after clicking of "Wyslij" to allow add new comment immediately without reloading the page -->
+                <div id="commentsCont">
+                    <p ng-init="addWaitComment='Dodaj nowy komentarz'; tempCommentsIndex = x.comments_pl.length">{{addWaitComment}}</p>
+
+                    <table id="commentsTable">
+                        <tr>
+                            <td>Autor:</td>
+                            <td><input type="text" ng-model="commentAuth" class='commentTextInput'></td>
+                        </tr>
+                        <tr>
+                            <td>Treśc komentarza: </td>
+                            <td><textarea ng-model="commentText" class='commentAreaInput'></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button class="btn btn-info" ng-click="sendComment({key: emocjeFirebase.dataKey, imgIndex: emocjeFirebase.images.indexOf(x), lang: 'pl', commentIndex: tempCommentsIndex, auth: commentAuth, text: commentText, active: 'false', data: utc()}); addWaitComment='Twój komentarz został dodany i czeka na moderację'; commentAuth=''; commentText=''; tempCommentsIndex=tempCommentsIndex+1">Wyślij</button></td>
+                        </tr>
+                    </table>
+
+                    <hr class="hrStyle">
+
+                    <span ng-repeat="comment in x.comments_pl">
+                        <div ng-show="comment.active == 'true'" class="commentsList">
+
+                            <p style="line-height: 90%"><i><strong>{{comment.autor}}</strong></i><br>
+                                <span style="font-size: 10px">{{comment.data}}</span>
+                            </p>
+                            {{comment.tresc}}
+                            <hr class="hrStyle">
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </span>
+</div>
+
+

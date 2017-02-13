@@ -1,0 +1,98 @@
+/*GALLERY*/
+
+.active {
+    display:block;
+    transition: .3s;
+    opacity: 1;
+}
+.inactive {
+    visibility:hidden;
+    opacity: 0;
+}
+.lessOpacity {
+    opacity: 0.5;
+}
+.next, .previous, .closeGal {
+    opacity: 0.5;
+    cursor: pointer;
+}
+.next:hover, .previous:hover, .closeGal:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+.closeGal {
+    width: 20px;
+}
+.next, .previous {
+    position: absolute; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+    cursor: pointer;
+}
+.next {
+    right: -25px;
+}
+.previous {
+    left: 30px; 
+}
+#galeriaImage {
+    max-width: 100%; 
+    max-height: 80vh; 
+    border: 4px solid white; 
+    border-radius: 4px;    
+}
+#galeriaLargeImageCont {
+    padding-left: 0px;
+    margin-top: 5px; 
+    line-height: 95%;    
+}
+#galeriaImageIndex {
+    color: white; 
+    font-size: 10px;
+}
+#galeriaImageCaption {
+    color: white; 
+    font-style: italic;
+}
+#galeriaContainer {
+    overflow: hidden;
+    width: 598.5px;
+    height: 406px;
+    margin: 12px 16px;
+}
+#galeriaPrev {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background-size: cover;
+    cursor: pointer;
+    padding: 3px;
+}
+#galeriaLightboxBg {
+    width: 100vw; 
+    height: 100vh; 
+    position: fixed; 
+    top:50%;
+    left: 50%;
+    z-index: 3; 
+    transform: translate(-50%, -50%);
+    background-color: rgba(51,51,51,.95); 
+    overflow: auto;
+}
+#galeriaContentCont {
+    position: absolute; 
+    max-height: 100%; 
+    width: 100%; 
+    left: 0; 
+    right: 0;
+}
+#galeriaImageCont {
+    position: relative; /*was relative before but didn`t work in IE*/
+    left: 50%; 
+    top: 25%; 
+    transform: translate(-50%, -0); 
+    display: inline-block; 
+    max-height: 90%; 
+    width: auto; 
+    margin: 20px 0;
+}

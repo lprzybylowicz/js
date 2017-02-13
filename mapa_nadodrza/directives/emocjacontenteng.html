@@ -1,0 +1,11 @@
+<div id="emocja_container" ng-click="$event.stopPropagation()">
+    <div id="emocja_close" ng-click="$parent.clicked=false; $event.stopPropagation();">
+        <span style="padding: 0 6px; font-size: 12px" >Close</span><img ng-src='img/closeGal.png' style="width: 20px;">
+    </div>
+    
+    <div id="emocja_header">
+        <p>{{emocjeFirebase.tytul_eng}}</p>
+    </div>
+    
+    <textarea id="emocja_content" ng-disabled=true>{{emocjeFirebase.opis_eng}}</textarea>    
+</div>

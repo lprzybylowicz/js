@@ -1,0 +1,30 @@
+#commentsCont {
+    background-color: rgba(255,255,255,.7); 
+    width: 50%; 
+    margin: 0 auto;
+}
+.commentsList {
+    margin-right: 10px;
+}
+#commentsCont > p {
+    padding: 5px 10px; 
+    font-weight: bold; 
+}
+
+#commentsTable tr td {
+    padding: 1px 10px;
+}
+.commentTextInput {
+    width: 200px;
+}
+.commentAreaInput {
+    resize: none;
+    width: 300px;
+    height: 100px;
+}
+.commentsList {
+    margin-left: 10px;
+}
+.hrStyle {
+    margin: 10px 0;
+}

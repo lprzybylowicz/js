@@ -1,0 +1,219 @@
+@import url("mapa_comments.css");
+@import url("emocja.css");
+@import url("mapa_gallery.css");
+@import url("mapa_menu_content.css");
+
+body {
+    font-family: Arial, Verdana, sans-serif;
+}
+#main_container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+#map_container {
+    position: relative;
+    left: -400px;
+    top: -450px;
+    background-image: url(../img/mapa_big.jpg);
+    width: 2877px;
+    height: 2151px;
+    background-size: contain;
+    transition: ease 0.2s; 
+}
+#centerCont {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%; 
+}
+#centerContMenu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto; 
+}
+#mapPoint {
+    display: inline-block; 
+    width: 30px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 3;
+}
+/*NAVIGATION*/
+
+#arrow_up, #arrow_down, #arrow_left, #arrow_right {
+    position: fixed;
+    z-index: 4;
+    opacity: 0.5;
+}
+#arrow_up, #arrow_down {
+    width: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#arrow_left, #arrow_right {
+    height: 90px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#arrow_up {
+    top: 0;
+}
+#arrow_down {        
+    bottom: 0;
+}
+#arrow_left {      
+    left: 0;
+}
+#arrow_right {        
+    right: 0;
+}
+
+/*MENU*/
+
+#menuContainer {
+    position: fixed;
+    right: 5%;
+    top: 4%;
+    width: 500px;
+    height: 90px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 3px black;
+    background-color: rgba(255,255,255,.9);
+    z-index: 4;
+}
+#menuContent {
+    width: 500px;
+    height: 70px;
+    margin: 10px auto;
+/*    border: 1px solid black;*/
+}
+#menuDivider {
+    width: 480px;
+    border-color: black;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#siteTitle, #siteTitleDe {
+    font-family: Verdana, sans-serif;
+    text-shadow: 0.1px 0.1px 40px rgba(0,0,0,0.4);
+    width: 80%;
+    text-align: center;
+    font-size: 18px;
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#siteTitleDe {
+    font-size: 16px;
+}
+#speakerIcon {
+    width: 25px;
+    cursor: pointer;
+    display: inline-block;
+    opacity: 0.6;
+    position: absolute;
+    right: 12px;
+    top: 10px;
+}
+#speakerIcon:hover {
+    opacity: 0.8;
+}
+#menuNav {
+    font-size: 15px;
+    width: 480px;
+    position: absolute;
+    left: 50%;
+    bottom: 9px;
+    transform: translateX(-50%);
+    font-family: Verdana, sans-serif;
+    text-shadow: 0.1px 0.1px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    padding: auto;
+}
+.menuItem, .menuItemDe {
+    float: left;
+    margin: 1px 15px 0px 1px;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    transition: all ease-in-out 0.3s;
+    color: black;
+    padding-left: 2px;
+}
+.menuItemDe {
+    font-size: 13px;
+    margin-bottom: 3px;
+}
+.menuItemDe:hover {
+    text-decoration: none;
+    color: rgb(153,76,0);
+    border-color: rgb(153,76,0);
+}
+.menuItem:hover {
+    text-decoration: none;
+    color: rgb(153,76,0);
+    border-color: rgb(153,76,0);
+}
+.menuFlag {
+    float: right;
+    margin: 1px 1px 0px 7px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    padding-right: 2px;
+}
+.menuFlag:hover {
+    opacity: 1;   
+}
+.activeFlag {
+    opacity: 1;
+}
+/*WAIT/COMPLETE PANEL*/
+
+.centered {
+    opacity: .8;
+    background-color: rgba(0,0,0,.5);
+    text-align: center;
+    padding: 5px 0;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+}
+.opacityClass {
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+/*OTHER*/
+
+.clearfix {
+    clear: both;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+#mainPageFooter {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    font-style: italic;
+    font-size: 10px;
+    z-index: 4;
+    width: 45%;
+    
+}

@@ -1,0 +1,90 @@
+/*EMOCJA CONTENT STYLES*/
+#emocjaFlexboxBg {
+    width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    left: 0px; 
+    top: 0px; 
+    z-index: 4; 
+    background-color: rgba(0,0,0,.5);
+}
+#emocjaContentDiv {
+    width: 400px; 
+    position: absolute;  /*was fixed before, but didn`t work in IE*/
+    left: 0; 
+    top: 0; 
+    z-index: 4;
+}
+#emocja_container {
+    background-image: url(../img/emocja_content/kartka.png);
+    background-size: contain;
+    width: 408px;
+    height: 550px;
+}
+#emocja_content {
+    width: 340px;
+    margin: 5px 34px;
+    height: 450px;
+    padding: 10px 15px;
+    text-align: justify;    
+    overflow-x: auto;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    resize: none;
+}
+#emocja_header {
+    width: 340px;
+    margin: 15px 34px 5px 34px;
+    max-height: 25px;
+    font-size: 1em;
+    padding-left: 15px;
+    font-style: italic;
+    color: rgb(153,76,0);
+}
+#emocja_close {
+    position: relative;
+    opacity: 0.8;
+    text-align: right;
+    padding-right: 30px;
+    top: -25px;
+    color: white;
+    font-size: 16px;
+    z-index: 1;
+    cursor: pointer;
+}
+#galeriaContentDiv {
+    width: 630px; 
+    height: 430px; 
+    position: absolute;  /*was fixed before, but didn`t work in IE*/
+    left: 380px;
+    top: -30px; 
+    background-image: url(../img/emocja_content/galeria.png); 
+    background-size: cover; 
+    z-index: 5;
+}
+#ytContentDiv {
+    width: 320px; 
+    height: 181px; 
+    position: absolute; 
+    left: 395px; 
+    top: 390px; 
+    background-image: url(../img/emocja_content/yt.png); 
+    background-size: contain; 
+
+}
+#ytIframeDiv {
+    display: inline-block; 
+    transform: translate(-50%, -50%);
+    position: relative;
+    left: 50%;
+    top: 50%;
+}
+#emocja_close:hover {
+    opacity: 1;
+}
+#zobaczGalerie {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    color: white;
+}

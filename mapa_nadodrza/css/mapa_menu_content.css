@@ -1,0 +1,54 @@
+.menuPageDiv {
+    width: 400px; 
+    position: fixed; 
+    left: 0; 
+    top: 0; 
+    z-index: 4;
+    
+}
+.menu_container {
+    background-image: url(../img/menuPanel.png);
+    background-size: contain;
+    width: 717px;
+    height: 515px;
+}
+.menu_close {
+    position: relative;
+    opacity: 0.5;
+    text-align: right;
+    padding-right: 10px;
+    top: -25px;
+    color: white;
+    font-size: 16px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.menu_close:hover {
+    opacity: 1;
+}
+
+.closeMenu {
+    width: 20px;
+}
+.menu_header {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px 25px;
+    
+}
+.menu_text {
+    overflow-y: auto;
+    width: 700px;
+    height: 440px;
+}
+.menu_text_content {
+    text-align: justify;
+    padding: 10px 25px;
+}
+.menu_text_content p {
+    padding-bottom: 15px;
+}
+#contactTable tr td {
+    padding: 1px 15px 1px 0;
+}

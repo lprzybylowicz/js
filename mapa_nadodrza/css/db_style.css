@@ -1,0 +1,131 @@
+@import url("listresult.css");
+/*ATUHORIZATION*/
+
+.authPanelContainer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 2;
+    top: 0px;
+    bottom: 0px;    
+}
+.authPanel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+    padding: 0 10px 10px 10px;
+    z-index: 3;
+    overflow-y: auto;
+}
+.authPanel p {
+    font-size: 16px;
+    padding: 10px;
+}
+#authTable tr td {
+    padding: 1px 5px;
+}
+
+.pointer_div {
+    background: url('../img/mapa_big.jpg'); 
+    background-size: contain; 
+    position: absolute; 
+    left: 0px; 
+    top: 0px; 
+    width: 2877px; 
+    height: 2151px; 
+    display: inline-block;
+    z-index: 6;
+}
+.textareaAdd {
+    width: 400px; 
+    height: 200px;
+}
+.clearfix {
+    clear: both;
+}
+.addPanelContainer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 2;
+    top: 0%;
+    bottom: 0%;    
+    overflow-y: auto;
+}
+.addPanel {
+    margin: 30px auto;
+    width: 450px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+    padding: 0 10px 10px 10px;
+    z-index: 3;
+    overflow-y: auto;
+    max-height: 90%;
+}
+.navbar-nav {
+    padding: 0 10px;
+    margin: 0;
+}
+.navbar-brand {
+    cursor: pointer;
+}
+.mapPoint {
+    display: inline-block; 
+    width: 30px;
+    position: absolute;
+    cursor: pointer;
+}
+.crossMap {
+    display: inline-block; 
+    width: 50px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+.crossOkBtn, .crossCancelBtn {
+    display: inline-block; 
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+}
+.coorsInfo {
+    width: 130px;
+    text-align: center;
+    color: white;
+    position: fixed;
+    top: 20px;
+    left: 400px;
+    padding: 10px;
+    background-color: rgba(0,0,0,.6);
+    
+}
+.centered { 
+    opacity: 1;
+    text-align: center;
+    padding: 5px 0;
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+}
+.opacityClass {
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

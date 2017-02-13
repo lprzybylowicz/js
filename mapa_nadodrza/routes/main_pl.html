@@ -1,0 +1,66 @@
+<div id="main_container" ng-cloak>
+
+
+    <div id="map_container" > 
+<!--            EMOCJE-->
+
+        <nav>
+            <div id="menuContainer">
+                <div id="menuContent">
+                    <span id="siteTitle">MAPA EMOCJONALNA NADODRZA</span>
+<!--                    <img ng-src="{{musicCtrl.speaker}}" id="speakerIcon" ng-click="musicCtrl.musicToggle()">-->
+                    <hr id="menuDivider">
+                    <div id="menuNav" ng-init="menuObj.menuClicked = false" >
+                        <span class="menuItem" ng-init="menuObj.menuClickedProjekt = false" ng-click="menuObj.menuClickedProjekt = true; menuObj.menuClicked = true">O PROJEKCIE</span>
+                        <a ng-href="{{menuObj.tkcLink}}" target="_blank" class="menuItem">TKC</a>
+                        <span class="menuItem" ng-init="menuObj.menuClickedMecenat = false" ng-click="menuObj.menuClickedMecenat = true; menuObj.menuClicked = true">MECENAT</span>
+                        <span class="menuItem" ng-init="menuObj.menuClickedKontakt = false" ng-click="menuObj.menuClickedKontakt = true; menuObj.menuClicked = true">KONTAKT</span>
+                        <a href="#/de"><img class="menuFlag" src="img/flags/germany_sh.png" ></a>
+                        <a href="#/eng"><img class="menuFlag" src="img/flags/united_kingdom_sh.png" ></a>
+                        <a href="#/"><img class="menuFlag activeFlag" src="img/flags/poland_sh.png" ></a>
+                        <span class="clearfix"></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div id="emocjaFlexboxBg" ng-show="menuObj.menuClicked">
+            <div id="centerContMenu">
+                <div id="menuPageDiv" ng-click="$event.stopPropagation()">
+                    <menu-projekt ng-show="menuObj.menuClickedProjekt"></menu-projekt>
+                    <menu-mecenat ng-show="menuObj.menuClickedMecenat"></menu-mecenat>
+                    <menu-kontakt ng-show="menuObj.menuClickedKontakt"></menu-kontakt>
+                </div>
+            </div>
+        </div>
+
+        <div ng-repeat="emocje in firebase">
+
+            <img ng-src="img/point.png" id="mapPoint" ng-style="{'left': emocje.positionX-15 + 'px', 'top': emocje.positionY-15 + 'px'}" ng-init="clicked = false" ng-click="clicked=true; yt_src=getIframeSrc(emocje.youtube)" uib-popover="{{emocje.tytul_pl}}" popover-trigger="'mouseenter'" popover-placement="right" >
+
+            <div id="emocjaFlexboxBg" ng-show="clicked" ng-click="clicked=!clicked">
+                <div id="centerCont">
+
+                    <div id="emocjaContentDiv" ng-show="clicked">
+
+                        <emocja-content emocje-firebase='emocje'></emocja-content>
+
+                    </div>
+                    <div id="galeriaContentDiv" ng-show="clicked && emocje.images.length > 0" ng-click="$event.stopPropagation()">
+                        
+                        <span id="zobaczGalerie">Kliknij na zdjęcie, aby przejść do galerii</span>
+
+                        <galeria-content emocje-firebase='emocje' clicked-large={{clickedLarge}} active-page="activePage" comment-text={{commentsServ.commentText}} comment-auth={{commentsServ.commentAuth}} send-comment="commentsServ.sendComment(key, imgIndex, lang, commentIndex, auth, text, active, data)" utc="getUtcServ.utc()"></galeria-content>
+
+                    </div>
+                    <div id="ytContentDiv" ng-show="clicked && emocje.youtube" ng-click="$event.stopPropagation()">
+    
+                        <div id="ytIframeDiv">
+                            <iframe width="290" height="163" ng-src="{{yt_src}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
